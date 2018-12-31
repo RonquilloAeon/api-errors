@@ -1,10 +1,11 @@
 import falcon
 
+import middleware
 import resources
 
 
 def create():
-    app = falcon.API()
+    app = falcon.API(middleware=[middleware.StandardResponseMiddleware()])
 
     app.add_route('/success', resources.SuccessResource())
 
