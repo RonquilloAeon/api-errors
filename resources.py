@@ -1,6 +1,13 @@
 import falcon
 
 
+class BadRequestResource:
+    def on_post(self, req, resp):
+        data = req.media
+
+        raise falcon.HTTPBadRequest(description='Something bad')
+
+
 class SuccessResource:
     def on_get(self, req, resp):
         resp.status = falcon.HTTP_200
