@@ -8,6 +8,20 @@ class BadRequestResource:
         raise falcon.HTTPBadRequest(description='Something bad')
 
 
+class DetailResource:
+    def on_get(self, req, resp, id):
+        resp.context = {
+            'result': {'hello': 'world'}
+        }
+
+
+class ListResource:
+    def on_get(self, req, resp):
+        resp.context = {
+            'results': [{'say hello': c} for c in range(10)]
+        }
+
+
 class SuccessResource:
     def on_get(self, req, resp):
         resp.status = falcon.HTTP_200

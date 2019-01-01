@@ -10,6 +10,8 @@ def create():
     app.add_error_handler(falcon.HTTPError, error_handlers.standard_response_error_handler)
 
     app.add_route('/bad_requests', resources.BadRequestResource())
+    app.add_route('/details', resources.ListResource())
+    app.add_route('/details/{id:int}', resources.DetailResource())
     app.add_route('/success', resources.SuccessResource())
 
     return app
