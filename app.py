@@ -12,6 +12,7 @@ def create():
     app.add_route('/bad_requests', resources.BadRequestResource())
     app.add_route('/details', resources.ListResource())
     app.add_route('/details/{id:int}', resources.DetailResource())
+    app.add_route('/push_buttons', resources.PushButtonResource())
     app.add_route('/success', resources.SuccessResource())
 
     return app

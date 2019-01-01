@@ -9,11 +9,11 @@ class StandardResponseMiddleware:
             if result and results:
                 raise ValueError('Unexpected result and results in response')
 
-            message = getattr(resp, 'message', None)
-            status_message = getattr(resp, 'status_message', 'success')
+            message = context.get('message')
+            status = context.get('status', 'success')
             media = {
                 'message': message,
-                'status': status_message,
+                'status': status,
             }
 
             if result:

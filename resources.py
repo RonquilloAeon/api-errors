@@ -22,6 +22,14 @@ class ListResource:
         }
 
 
+class PushButtonResource:
+    def on_get(self, req, resp):
+        resp.context = {
+            'message': 'You pushed buttons',
+            'status': 'fail',
+        }
+
+
 class SuccessResource:
     def on_get(self, req, resp):
         resp.status = falcon.HTTP_200
