@@ -15,6 +15,11 @@ class DetailResource:
         }
 
 
+class FailResource:
+    def on_get(self, req, resp):
+        'string' / 2
+
+
 class ListResource:
     def on_get(self, req, resp):
         resp.context = {
@@ -28,6 +33,7 @@ class PushButtonResource:
             'message': 'You pushed buttons',
             'status': 'fail',
         }
+        resp.status = falcon.HTTP_400
 
 
 class SuccessResource:
